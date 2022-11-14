@@ -1,0 +1,70 @@
+Modern React with Redux
+RTMP NodeMediaServer is not a constructor error fix
+In the next lecture we will install the Node Media Server package and create our RTMP server. Our index.js needs a slight modification to the import for v.2.1.0
+
+https://github.com/illuspas/Node-Media-Server#npm-version-recommended
+
+Instead of:
+
+const { NodeMediaServer } = require('node-media-server');
+we need to change the import to this:
+
+const NodeMediaServer = require('node-media-server');
+npm version (recommended)
+mkdir name dir
+cd dir name
+npm install node-media-server  
+
+if faced problem use npm init then npm install --save node-media-server 
+
+index.js file content =>
+////////////////////////////////
+const NodeMediaServer = require('node-media-server');
+
+const config = {
+  rtmp: {
+    port: 1935,
+    chunk_size: 60000,
+    gop_cache: true,
+    ping: 30,
+    ping_timeout: 60
+  },
+  http: {
+    port: 8000,
+    allow_origin: '*'
+  }
+};
+
+var nms = new NodeMediaServer(config)
+nms.run();
+////////////////////////////////
+************************************************
+change script at json package file to 
+
+  "scripts": {
+    "start": "node index.js"
+  },
+******************************************
+run using==> node index.js
+==========================================================
+https://obsproject.com/download#linux
+
+OBS Studio is officially distributed as a Flatpak on Flathub and a PPA for Ubuntu 20.04 and newer. For other installation methods, including unofficial packages, click here.
+
+Flatpak Instructions
+
+You can install OBS Studio from Flathub here.
+
+If your distro is not already set up to install Flatpaks, you can follow the instructions here.
+
+Ubuntu Instructions (20.04+)
+
+Run these commands to install OBS Studio on Ubuntu via the official PPA:
+
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update
+sudo apt install ffmpeg obs-studio
+==========================================
+install flv.js for media player
+
+yarn add flv.js

@@ -1,0 +1,372 @@
+## FOR CSS STYLE 
+
+https://semantic-ui.com/views/comment.html
+
+## TO GET THE LINK TO ADD AT INDEX.HTML IN REACT FOLDER insert the below link 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+/>
+https://cdnjs.com/libraries/semantic-ui
+
+
+## TO GET IMAGE OF ANYTHING USING INSIDE REACT 
+
+IMPORTANT Info About Faker Installation
+In the upcoming lecture, we will be installing the Faker library. You may notice that the Github repository for Faker is empty or is displaying some confusing messaging. The library currently no longer exists and is not being maintained. However, as of today, it still exists in the NPM registry and we are able to install and use it in our projects by specifying the last known good version:
+
+A community fork of Faker was made to save the project and they are actively working on some fixes and a fresh v6 release:
+
+
+https://github.com/faker-js/faker
+
+If you wish to use this library instead, you can install it by running:
+
+yarn add @faker-js/faker
+
+You'll then need to update your imports:
+
+import { faker } from "@faker-js/faker";
+
+<img alt="avatar" src={faker.image.image()} />
+
+import React from 'react';
+import './App.css';
+
+## CONSTRUCTOR FUNCTIONS
+
+class App extends React.Component {
+  //constructor func only job is update the state object.//
+  constructor(props) {
+    super(props);
+    this.state = { lat: null, errMassage: ''}
+  }
+
+  //This line is equivalent the constructor function.//
+  state = { lat: null, errMassage: ''}
+=====================================================
+Icons Not Loading and CORS errors
+In the upcoming lecture, we will be adding some font icons from the Semantic UI library.
+
+There is a CDN bug that some students are hitting where the icons will no longer load and throw a CORS error after changing the browser's location sensors. Another student finally discovered the reason here.
+
+The CDN.js docs add the integrity and crossorigin parameters to your script by default, which is breaking when we change the location sensors.
+
+Change the script to look like this:
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+
+Stop the server and close your browser (if you miss fully closing the browser the error will persist). Then, restart your server.
+
+If this does not resolve your issue, you can also choose to install the CSS library locally:
+
+npm install semantic-ui-css
+
+Then, import the library into your root index.js component:
+
+import "semantic-ui-css/semantic.min.css";
+===============================================================================
+<i className={` this for icon size=> massive this is for the icon name=> ${icon} this for class name=>  icon`}></i>
+
+==========================================================================
+Axios handles network requests in a very predictable fashion.
+
+But Farfetch has a couple of corner cases that are really just not great to work with.
+
+THE EASY WAY TO FETCH DATA FROM API 
+
+yarn add axios 
+
+=============================================================
+APP REVIEWS =================================
+Now, it took a pretty good amount of time, but I think you'll agree with me that we learned a lot
+
+about React in this video.
+
+I want to do a quick overview on some of the big things that we covered and then we'll go to a couple
+
+exercises in the next section.
+
+So we're going to first start off with the first component we put together, these search bar inside
+
+of here.
+
+We learn more about event handlers.
+
+Remember with an event handler, we will take, say a input tag or a form tag.
+
+We will pass in a callback function to a very specifically named prop.
+
+Then whenever that tag or that element emits that event, our callback function will be called.
+
+One huge issue that we ran into around these callback functions was the value of this inside them.
+
+And as you saw by one of the later errors we ran into inside the app component, this is an issue that
+
+is not going to go away.
+
+It's something that you always have to be aware of because it's going to rear its ugly head, so to
+
+speak, on just about every project you work on.
+
+Remember in general, the rule to keep in mind, any time you have a callback function just to be safe,
+
+you can use this arrow syntax like the like so or the arrow function syntax that's going to automatically
+
+bind this function and make sure that it always has the appropriate value of this inside of it.
+
+The next thing that we covered with our search bar component was that with the proper system, we only
+
+communicate from a parent down to a child that eventually end up being an issue because we wanted to
+
+communicate this search term from the search bar up to the parent function or the parent component,
+
+the app component in this case.
+
+So in order to communicate from a child to a parent, we pass a callback from the parent to the child,
+
+and then the child will call that callback identical system to what we are doing with these event handlers
+
+down here.
+
+All right.
+
+So the next thing we ran into was inside of our image list, DOJ's file.
+
+We learned a little bit more about how to render images or render lists.
+
+So the key thing to keep in mind here is the map function from JavaScript.
+
+Every time you want to render a list, you're probably going to be reaching for that map function.
+
+Any time we make a list, we always have to define, maybe not have to, but highly, highly recommended
+
+to define a key on the root element that we are rendering into that list.
+
+In general, we want to use a key that has a value that is consistent in unchanging for each record
+
+between renders.
+
+And so if you're ever working with data that has an ID property, you're almost always going to use
+
+the ID of each record as the key property.
+
+Then the last thing we spoke about was inside the image card.
+
+We got a pretty good introduction to the ref system.
+
+Remember, any time that we want to reach into the DOM and interact with some individual element, we're
+
+going to create a ref inside the constructor and then we will wire it up to an individual element by
+
+passing it as a rough property.
+
+Then later on we can access that ref and get a handle on the actual DOM node.
+
+As a quick reminder, I can't say enough.
+
+Remember, these are JSX tags right here.
+
+This is not HTML, so we can't just somehow maintain a reference to this x element.
+
+We have to make use of the ref system if we ever want to interact with a actual DOM element.
+
+And then finally, we learned a little bit about the grid CSS system.
+
+Now, I'll be honest with you.
+
+Understand the grid CSS system, totally not a requirement whatsoever.
+
+Grid CSS is extremely new, still undergoing changes.
+
+So we didn't really do a deep dive on it because it's just not super important to have a super solid
+
+grasp on it just yet.
+===================================================================================
+yarn add lodash 
+
+import lodash at index actions file
+=============================================================
+Important Note about Redux Form Installation
+Installation
+
+###### yarn add redux-form
+
+In the upcoming lecture, we will be installing Redux Form into our application. If you are using the latest Node v15 and npm v7 releases, this will fail with the following error:
+
+code ERESOLVE
+
+npm ERR! ERESOLVE unable to resolve dependency tree
+
+This is caused by some fairly significant breaking changes NPM is making, which can read about here:
+
+https://blog.npmjs.org/post/626173315965468672/npm-v7-series-beta-release-and-semver-majory
+
+If you are using NPM, you'll need to run this command instead:
+
+npm install redux-form --legacy-peer-deps
+
+If you are using Yarn, no further changes will be needed and you can install as you would typically:
+
+yarn add redux-form
+
+Note - Do not mix the use of yarn and npm in the same project, this will cause some serious dependency conflicts.
+
+React Final Form
+
+We highly recommend finishing the Streaming / Twitch Clone project in Sections 23 to 26 with Redux Form so that you fully understand how everything fits together as shown in the lectures. The migration to Final Form is fairly simple in regards to the completed project code and can be found in this supplemental lecture note here:
+
+https://www.udemy.com/course/react-redux/learn/lecture/26637172#questions
+
+
+========================================================================================
+History Object Deprecation Warning
+In the next lecture we are going to be creating our history object. As of React Router DOM v4.4.0 you will get a warning in your console:
+
+Warning: Please use `require("history").createBrowserHistory` instead of `require("history/createBrowserHistory")`. Support for the latter will be removed in the next major release.
+
+To fix, our history.js file should instead look like this:
+
+import { createBrowserHistory } from 'history'; 
+export default createBrowserHistory();
+
+
+if you want to go back to anothor route use history 
+
+import history from '../history'
+
+
+use this: onClick={()=> history.push('/')} 
+
+<div onClick={()=> history.push('/')} className="ui dimmer modals visible active">
+
+if u clicked anywhere will go back to the previous page
+
+but if you want to stop this action use in same render in the div after the div of  history.push:
+
+onClick={(e)=> e.stopPropagation()}/
+=====================================================================
+
+Modern React with Redux
+RTMP NodeMediaServer is not a constructor error fix
+In the next lecture we will install the Node Media Server package and create our RTMP server. Our index.js needs a slight modification to the import for v.2.1.0
+
+https://github.com/illuspas/Node-Media-Server#npm-version-recommended
+
+Instead of:
+
+const { NodeMediaServer } = require('node-media-server');
+we need to change the import to this:
+
+const NodeMediaServer = require('node-media-server');
+npm version (recommended)
+mkdir nms
+cd nms
+npm install node-media-server  or yarn add node-media-server/
+vi app.js
+const NodeMediaServer = require('node-media-server');
+
+const config = {
+  rtmp: {
+    port: 1935,
+    chunk_size: 60000,
+    gop_cache: true,
+    ping: 30,
+    ping_timeout: 60
+  },
+  http: {
+    port: 8000,
+    allow_origin: '*'
+  }
+};
+
+var nms = new NodeMediaServer(config)
+nms.run();
+node app.js
+================================================================
+
+Refactor to use React Final Form instead of Redux Form
+Here is the refactored code for the Streams project to replace Redux Form with React Final Form. The main updates will only need to be with the StreamForm component and a small update to the combineReducers function. The rest of the application will remain unchanged.
+
+Official migration guide for more details:
+
+https://final-form.org/docs/react-final-form/migration/redux-form
+
+Install React Final Form
+
+npm install final-form react-final-form
+reducers/index.js
+
+import { combineReducers } from "redux";
+ 
+import authReducer from "./authReducer";
+import streamReducer from "./streamReducer";
+ 
+export default combineReducers({
+  auth: authReducer,
+  streams: streamReducer,
+});
+StreamForm component
+
+import React from "react";
+import { Form, Field } from "react-final-form";
+ 
+const StreamForm = (props) => {
+  const renderError = ({ error, touched }) => {
+    if (touched && error) {
+      return (
+        <div className="ui error message">
+          <div className="header">{error}</div>
+        </div>
+      );
+    }
+  };
+ 
+  const renderInput = ({ input, label, meta }) => {
+    const className = `field ${meta.error && meta.touched ? "error" : ""}`;
+    return (
+      <div className={className}>
+        <label>{label}</label>
+        <input {...input} autoComplete="off" />
+        {renderError(meta)}
+      </div>
+    );
+  };
+ 
+  const onSubmit = (formValues) => {
+    props.onSubmit(formValues);
+  };
+ 
+  return (
+    <Form
+      initialValues={props.initialValues}
+      onSubmit={onSubmit}
+      validate={(formValues) => {
+        const errors = {};
+ 
+        if (!formValues.title) {
+          errors.title = "You must enter a title";
+        }
+ 
+        if (!formValues.description) {
+          errors.description = "You must enter a description";
+        }
+ 
+        return errors;
+      }}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit} className="ui form error">
+          <Field name="title" component={renderInput} label="Enter Title" />
+          <Field
+            name="description"
+            component={renderInput}
+            label="Enter Description"
+          />
+          <button className="ui button primary">Submit</button>
+        </form>
+      )}
+    />
+  );
+};
+ 
+export default StreamForm;
+Resources for this lecture

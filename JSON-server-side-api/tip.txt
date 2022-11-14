@@ -1,0 +1,19 @@
+create json server 
+
+create new folder and use
+1- npm init or yarn init 
+2- click enter ....and so on to complete
+3- create new file db.json inside it 
+{
+    "streams":[]
+}
+4- run on the dic terminal yarn start or npm start
+
+5- if you used yarn don't use npm to install another library and the opposite
+
+6- now we have to server to run client side and server side
+
+========================================================================
+ "scripts": {
+  
+    "start":"json-server -p 3001 -w db.json"
